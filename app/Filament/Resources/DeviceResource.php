@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Schmeits\FilamentCharacterCounter\Forms\Components\TextInput;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\DeviceResource\Pages;
 use App\Filament\Resources\DeviceResource\RelationManagers;
@@ -76,8 +77,9 @@ class DeviceResource extends Resource
                             ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
                             ->columnSpan('full')
                             ->required(),
-                        Forms\Components\TextInput::make('note')->label(__('fields.note'))
-                            ->maxLength(255),
+                        /*Forms\Components\*/TextInput::make('note')->label(__('fields.note'))
+                            //->maxLength(255),
+                            ->characterLimit(50),
                     ])
 
             ]);

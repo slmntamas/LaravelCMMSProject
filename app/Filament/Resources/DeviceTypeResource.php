@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Schmeits\FilamentCharacterCounter\Forms\Components\TextInput;
 use App\Filament\Resources\DeviceTypeResource\Pages;
 use App\Filament\Resources\DeviceTypeResource\RelationManagers;
 use App\Models\DeviceType;
@@ -46,8 +47,9 @@ class DeviceTypeResource extends Resource
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->maxLength(255),
-                Forms\Components\TextInput::make('note')->label(__('fields.note'))
-                    ->maxLength(255),
+                /*Forms\Components\*/TextInput::make('note')->label(__('fields.note'))
+                    //->maxLength(255),
+                    ->characterLimit(50),
                 ])
             ]);
     }
