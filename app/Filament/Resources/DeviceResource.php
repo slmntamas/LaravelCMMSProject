@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\DeviceResource\Pages;
 use App\Filament\Resources\DeviceResource\RelationManagers;
 use App\Models\Device;
@@ -65,8 +66,16 @@ class DeviceResource extends Resource
                             ->onColor('success')
                             ->offColor('danger')
                             ->columnSpan('full'),
-                        Forms\Components\TextInput::make('history')->label(__('fields.history'))
-                            ->maxLength(255),
+                        /*Forms\Components\TextInput::make('history')->label(__('fields.history'))
+                            ->maxLength(255),*/
+                        TinyEditor::make('history')->label(__('fields.history'))
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsVisibility('public')
+                            ->fileAttachmentsDirectory('uploads')
+                            ->profile('default|simple|full|minimal|none|custom')
+                            ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
+                            ->columnSpan('full')
+                            ->required(),
                         Forms\Components\TextInput::make('note')->label(__('fields.note'))
                             ->maxLength(255),
                     ])
