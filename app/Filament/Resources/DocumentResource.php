@@ -40,11 +40,10 @@ class DocumentResource extends Resource
     {
         return $form->schema([
             Forms\Components\Section::make()->schema([
-                /*Forms\Components\*/TextInput::make('name')->label(__('fields.name'))
+                TextInput::make('name')->label(__('fields.name'))
                     ->required()
                     ->unique(ignoreRecord: true)
-                    //->maxLength(255),
-                    ->characterLimit(50),
+                    ->characterLimit(30),
                 Forms\Components\Select::make('device_id')->label(__('module_names.devices.label'))
                     ->relationship('device', 'name')
                     ->searchable()

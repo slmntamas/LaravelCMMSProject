@@ -47,9 +47,8 @@ class DeviceTypeResource extends Resource
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->maxLength(255),
-                /*Forms\Components\*/TextInput::make('note')->label(__('fields.note'))
-                    //->maxLength(255),
-                    ->characterLimit(50),
+                TextInput::make('note')->label(__('fields.note'))
+                    ->characterLimit(300),
                 ])
             ]);
     }

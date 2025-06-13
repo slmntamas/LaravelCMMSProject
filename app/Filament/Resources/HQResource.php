@@ -18,6 +18,10 @@ class HQResource extends Resource
     protected static ?string $model = HQ::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $pluralModelLabel = 'HQ';
+    protected static ?string $modelLabel = 'HQ';
+    protected static ?string $navigationLabel = 'HQ';
+    
 
     public static function form(Form $form): Form
     {
@@ -57,9 +61,7 @@ class HQResource extends Resource
                 ->sortable(),
                 ])
                 ->filters([
-                    // Itt lehetne például telephelynév vagy kapcsolattartó alapján szűrni, ha kell
-                    // Példa:
-                    // Tables\Filters\Filter::make('város')...
+                    
                 ])
                 ->actions([
                     Tables\Actions\ViewAction::make(),

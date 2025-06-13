@@ -67,8 +67,6 @@ class DeviceResource extends Resource
                             ->onColor('success')
                             ->offColor('danger')
                             ->columnSpan('full'),
-                        /*Forms\Components\TextInput::make('history')->label(__('fields.history'))
-                            ->maxLength(255),*/
                         TinyEditor::make('history')->label(__('fields.history'))
                             ->fileAttachmentsDisk('public')
                             ->fileAttachmentsVisibility('public')
@@ -77,9 +75,8 @@ class DeviceResource extends Resource
                             ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
                             ->columnSpan('full')
                             ->required(),
-                        /*Forms\Components\*/TextInput::make('note')->label(__('fields.note'))
-                            //->maxLength(255),
-                            ->characterLimit(50),
+                        TextInput::make('note')->label(__('fields.note'))
+                            ->characterLimit(150),
                     ])
 
             ]);
